@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
 
   function test1() {
     const li = document.createElement("li");
-    li.textContent = "Remove all break tags";
+    li.textContent = "Remove all break tags (querySelectorAll + forEach + remove)";
     ol.appendChild(li);
     (function() {
       if (document.querySelectorAll("br").length === 0) {
@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
   }
   function test2() {
     const li = document.createElement("li");
-    li.textContent = "Give all sections the class 'filled'";
+    li.textContent = "Give all sections the class 'filled' (querySelectorAll + forEach + classList)";
     ol.appendChild(li);
     (function() {
       if (document.querySelectorAll("section.filled").length === 24) {
@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
 
   function test3() {
     const li = document.createElement("li");
-    li.textContent = "Remove all elements that come before a section";
+    li.textContent = "Remove all elements that come before a section (querySelectorAll + forEach + previousElementSibling + remove)";
     ol.appendChild(li);
     (function() {
       if (document.querySelectorAll("#app>div").length === 76) {
