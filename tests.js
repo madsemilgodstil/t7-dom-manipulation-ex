@@ -2,53 +2,54 @@ window.addEventListener("load", () => {
   const ol = document.createElement("ol");
   document.body.appendChild(ol);
 
-  function test1() {
+  const createLI = (task, selector, requirements) => {
     const li = document.createElement("li");
-    li.textContent = "Remove all break tags (querySelectorAll + forEach + remove)";
+    li.textContent = task;
     ol.appendChild(li);
-    (function() {
-      if (document.querySelectorAll("br").length === 0) {
+    (function () {
+      if (document.querySelectorAll(selector).length === requirements) {
         li.style.textDecoration = "line-through";
       }
     })();
+  };
+  function test1() {
+    createLI(
+      "Remove all break tags (querySelectorAll + forEach + remove)",
+      "br",
+      0
+    );
   }
   function solution1() {
     const all = document.querySelectorAll("br");
-    all.forEach(a => {
+    all.forEach((a) => {
       a.remove();
     });
   }
   function test2() {
-    const li = document.createElement("li");
-    li.textContent = "Give all sections the class 'filled' (querySelectorAll + forEach + classList)";
-    ol.appendChild(li);
-    (function() {
-      if (document.querySelectorAll("section.filled").length === 24) {
-        li.style.textDecoration = "line-through";
-      }
-    })();
+    createLI(
+      "Give all sections the class 'filled' (querySelectorAll + forEach + classList)",
+      "section.filled",
+      24
+    );
   }
   function solution2() {
     const all = document.querySelectorAll("section");
-    all.forEach(a => {
+    all.forEach((a) => {
       a.classList.add("filled");
     });
   }
 
   function test3() {
-    const li = document.createElement("li");
-    li.textContent = "Remove all elements that come before a section (querySelectorAll + forEach + previousElementSibling + remove)";
-    ol.appendChild(li);
-    (function() {
-      if (document.querySelectorAll("#app>div").length === 76) {
-        li.style.textDecoration = "line-through";
-      }
-    })();
+    createLI(
+      "Remove all elements that come before a section (querySelectorAll + forEach + previousElementSibling + remove)",
+      "#app>div",
+      76
+    );
   }
   function solution3() {
     const all = document.querySelectorAll("section");
 
-    all.forEach(a => {
+    all.forEach((a) => {
       a.previousElementSibling.remove();
     });
   }
