@@ -1,7 +1,8 @@
 window.addEventListener("load", () => {
   const ol = document.createElement("ol");
   document.body.appendChild(ol);
-  const runSolutions = false;
+  const urlParams = new URLSearchParams(window.location.search);
+  const runSolutions = urlParams.get("debug") || false;
 
   const createLI = (task, selector, requirements, solution) => {
     if (runSolutions) {
@@ -58,7 +59,7 @@ window.addEventListener("load", () => {
   function test3() {
     createLI(
       "Remove all elements that come before a section (querySelectorAll + forEach + previousElementSibling + remove)",
-      "#app>div",
+      ".app>div",
       76,
       () => {
         const all = document.querySelectorAll("section");
